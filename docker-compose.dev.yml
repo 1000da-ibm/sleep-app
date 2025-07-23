@@ -1,0 +1,31 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev # ← dev 用を使う
+    ports:
+      - "3000:3000"
+    volumes:
+      # コードをホスト↔︎コンテナで双方向同期
+      - ./frontend:/app
+      # 依存はイメージの node_modules を優先 (anonymous volume)
+      - /app/node_modules
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
+      - CHOKIDAR_USEPOLLING=true
+    # --watch 機能 (Compose v2.20+) を使うなら下を有効化
+    # develop:
+    #   watch:
+    #     - path: ./frontend
+    #       action: sync
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1

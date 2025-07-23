@@ -1,50 +1,40 @@
 import React from "react";
 import { OnboardingProps } from "../../types";
+import { StatusBar } from "./StatusBar";
+import { ButtonGroup } from "./ButtonGroup";
+import { IllustrationTwo } from "./IllustrationTwo";
 
 const OnboardingTwo: React.FC<OnboardingProps> = ({ onNext, onSkip }) => {
   return (
-    <>
-      <div className="status-bar">
-        <span className="time">9:41</span>
-        <div className="battery">
-          <span>📶</span>
-          <span>📶</span>
-          <span>🔋</span>
-        </div>
-      </div>
-
-      <div className="screen onboarding-screen">
-        <div className="onboarding-illustration">📅</div>
-
-        <div>
-          <h1 className="onboarding-title">
+    <main className="onboarding-screen">
+      <StatusBar />
+      <div className="layout">
+        <IllustrationTwo />
+        <section className="content">
+          <h1 className="title">
             予定に合わせた
             <br />
-            "ちょうどいい眠り"を提案
+            “ちょうどいい眠り” をご提案
           </h1>
-          <p className="onboarding-description">
-            次回のカレンダーとあなたの予定。
-            あなたにとって、最高のスケジュールを作れるように、
-            睡眠時間も、目覚めの時刻もサポート！
+          <p className="description">
+            Googleカレンダーなどと連携し、
+            <br />
+            あなたに合った入眠スケジュールを自動で提案。
+            <br />
+            睡眠の質も、日中の集中力もアップ！
           </p>
-        </div>
 
-        <div className="dots-indicator">
-          <div className="dot"></div>
-          <div className="dot active"></div>
-          <div className="dot"></div>
-        </div>
+          {/* dots */}
+          <div className="dots">
+            <span className="dot" />
+            <span className="dot active" />
+            <span className="dot" />
+          </div>
+        </section>
 
-        <div className="button-container">
-          <button className="btn btn-secondary" onClick={onSkip}>
-            スキップ
-          </button>
-          <button className="btn btn-primary" onClick={onNext}>
-            次へ
-          </button>
-        </div>
+        <ButtonGroup onNext={onNext} onSkip={onSkip} />
       </div>
-    </>
+    </main>
   );
 };
 

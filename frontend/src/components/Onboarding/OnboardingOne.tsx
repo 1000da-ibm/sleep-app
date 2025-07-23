@@ -1,7 +1,6 @@
 import React from "react";
 import { OnboardingProps } from "../../types";
 import { StatusBar } from "./StatusBar";
-
 import { Illustration } from "./Illustration";
 import { ButtonGroup } from "./ButtonGroup";
 
@@ -16,7 +15,9 @@ const OnboardingOne: React.FC<OnboardingProps> = ({ onNext, onSkip }) => {
           <p className="description">
             予定に追われて、眠るタイミングを逃していませんか？
             <br />
-            『すやりずむ』は、あなたの生活リズムを整えるお手伝いをします。
+            『すやりずむ』は、あなたの生活リズムを
+            <br />
+            整えるお手伝いをします。
           </p>
 
           {/* progress dots */}

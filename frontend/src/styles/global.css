@@ -80,29 +80,74 @@
   top: 176px;
 }
 
+.schedule-img {
+  position: absolute;
+  width: 283px;
+  height: 150px;
+  left: 60px;
+  top: 144px;
+}
+
+.sleep-img {
+  position: absolute;
+  width: 298px;
+  height: 153px;
+  left: 60px;
+  top: 318px;
+}
+
+.puzzle-img {
+  position: absolute;
+  width: 283px;
+  height: 324px;
+  left: 60px;
+  top: 121px;
+}
+
 /* === テキスト & ドット === */
 .content {
   text-align: center;
   color: #fff;
 }
 .title {
-  font-size: 20px;
+  position: absolute;
+  width: 458px;
+  height: auto;
+  left: -28px; /* 画面中央より 28px 左にオフセット */
+  top: 534px; /* Figma の座標をそのまま使用 */
+
+  font-family: "SF Pro", sans-serif;
+  font-style: normal;
   font-weight: 590;
-  line-height: 50px;
-  opacity: 0.85;
+  font-size: 20px;
+  line-height: 30px; /* 行高 150% 指定 */
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.85);
 }
 .description {
-  font-size: 14px;
-  line-height: 20px;
-  opacity: 0.8;
-  margin-top: 12px;
+  position: absolute; /* ← 追加 */
+  width: 364px;
+  height: 61px;
+  left: 15px; /* Figma left: 14.66px → 四捨五入 */
+  top: 616px; /* Figma top: 606.12px */
+
+  font: 274 14px/20px "SF Pro", sans-serif; /* weight 274, size 14, lh 20 */
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0; /* ← margin-top は不要 */
+  opacity: 1; /* 既存の 0.8 も維持したい場合は削除 */
 }
 
+/* ③ dots を指定座標に固定（任意。マージン運用のままでも可） */
 .dots {
+  position: absolute;
+  left: 50%;
+  top: 720px; /* Figma top: 720.5px */
+  transform: translateX(-50%);
   display: flex;
   gap: 6px;
   justify-content: center;
-  margin-top: 24px;
 }
 .dot {
   width: 9px;
@@ -140,6 +185,21 @@
 }
 .btn-secondary {
   background: #181818;
+}
+
+.start-btn {
+  position: absolute;
+  width: 167px;
+  height: 61px;
+  left: 113px; /* (393-167)/2 ≒ 113 */
+  top: 750px;
+  border: none;
+  border-radius: 5px;
+  background: #1400a8;
+  color: #fff;
+  font: 400 18px/21px "SF Pro", sans-serif;
+  box-shadow: 0 40px 40px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 /* セーフエリア考慮 (iOS) */
