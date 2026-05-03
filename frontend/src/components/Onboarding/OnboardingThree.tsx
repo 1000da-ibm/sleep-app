@@ -1,9 +1,10 @@
 import React from "react";
 import { OnboardingProps } from "../../types";
 import { StatusBar } from "./StatusBar";
+import { IllustrationThree } from "./IllustrationThree";
 import { ButtonGroup } from "./ButtonGroup";
 
-const OnboardingTwo: React.FC<OnboardingProps> = ({ onNext, onSkip }) => {
+const OnboardingThree: React.FC<OnboardingProps> = ({ onNext, onSkip }) => {
   return (
     <main className="onboarding-screen">
       <StatusBar />
@@ -15,7 +16,7 @@ const OnboardingTwo: React.FC<OnboardingProps> = ({ onNext, onSkip }) => {
           <p className="description">
             睡眠 × スケジュールで、1日の質が変わります。
             <br />
-            さっそく、あなたの“すやりずむ”を始めましょう。
+            さっそく、あなたの"すやりずむ"を始めましょう。
           </p>
 
           {/* dots */}
@@ -26,13 +27,10 @@ const OnboardingTwo: React.FC<OnboardingProps> = ({ onNext, onSkip }) => {
           </div>
         </section>
 
-        {/* 開始ボタンは 1 つだけ */}
-        {/* <button className="start-btn" onClick={handleStart}>
-          さあ、始めよう
-        </button> */}
+        <ButtonGroup onNext={onNext} onSkip={onSkip} />
       </div>
     </main>
   );
 };
 
-export default OnboardingTwo;
+export default OnboardingThree;
